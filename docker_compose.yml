@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  app:
+    build: 
+      dockerfile: dockerfile
+    image: webapp
+    ports:
+      - "5005:5005"
+    environment:
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - APP_PORT=5005
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data_container:/data/db
+volumes:
+  mongodb_data_container:
