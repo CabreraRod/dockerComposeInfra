@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  app:
+  web:
     build: 
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
     image: webapp
     ports:
       - "5005:5005"
@@ -12,7 +12,7 @@ services:
       - MONGO_PORT=27017
       - APP_PORT=5005
     depends_on:
-      - mongo
+      - mongodb
 
   mongo:
     image: mongo:latest
