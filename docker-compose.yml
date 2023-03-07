@@ -14,7 +14,7 @@ services:
     depends_on:
       - mongodb
 
-  mongo:
+  mongodb:
     image: mongo:latest
     container_name: mongodb
     ports:
